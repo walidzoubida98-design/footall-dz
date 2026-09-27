@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الخضر - كرة القدم الجزائرية والعالمية</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+  
+  body { background: #f4f6f9; color: #222; line-height: 1.7; }
+  
+  /* الهيدر */
+  header {
+    background: linear-gradient(135deg, #006233, #007A3D, #D21034);
+    color: white;
+    padding: 20px 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo span { font-size: 32px; }
+  
+  nav {
+    max-width: 1200px;
+    margin: 15px auto 0;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background 0.3s;
+  }
+  
+  nav a:hover { background: rgba(255,255,255,0.2); }
+  
+  /* الأخبار العاجلة */
+  .breaking {
+    background: #D21034;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+  }
+  
+  /* الحاوية الرئيسية */
+  .container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  
+  /* الخبر الرئيسي */
+  .hero {
+    background: linear-gradient(135deg, #006233, #D21034);
+    color: white;
+    padding: 50px 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    opacity: 0.95;
+  }
+  
+  /* شبكة الأخبار */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  
+  .card-image {
+    height: 180px;
+    background: linear-gradient(135deg, #006233, #007A3D);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+  }
+  
+  .card-body { padding: 20pxا; }
+  
+  .card-category {
+ هذا    display: inline-block;
+    background: #006233;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #222;
+  }
+  
+  .card p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .card-meta {
+    font-size: 12px;
+    color: #999;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* الأقسام */
+  .section-title {
+    font-size: 26px;
+    color: #006233;
+    margin-bottom: 25px;
+    border-right: 5px solid #D21034;
+    padding-right: 15px;
+  }
+  
+  /* جدول الترتيب */
+  .standings {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    margin-bottom: 50px;
+  }
+  
+  .standings table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .standings th {
+    background: #006233;
+    color: white;
+    padding: 15px;
+    text-align: right;
+    font-size: 14px;
+  }
+  
+  .standings td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+  }
+  
+  .standings tr:hover { background: #f9f9f9; }
+  
+  .standings tr:last-child td { border-bottom: none; }
+  
+  /* الفوتر */
+  footer {
+    background: #1a1a2e;
+    color: #ccc;
+    padding: 40px 30px 20px;
+    margin-top: 50px;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .footer-content h4 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  
+  .footer-content a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  
+  .footer-content a:hover { color: #00b85e; }
+  
+  .copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 13px;
+    color: #888;
+  }
+  
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 24px; }
+    .hero { padding: 30px 20px; }
+    nav { gap: 10px; }
+    nav a { padding: 6px 10px; font-size: 14px; }
+    .logo { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- الهيدر -->
+  <header>
+    <div class="header-top">
+      <div class="logo"><span>🇩🇿</span> الخضر - كرة القدم</div>
+      <div style="font-size:14px">آخر تحديث: 2026</div>
+    </div>
+    <nav>
+      <a href="#home">الرئيسية</a>
+      <a href="#news">الأخبار</a>
+      <a href="#dz">الخضر</a>
+      <a href="#world">عالمياً</a>
+      <a href="#standings">الترتيب</a>
+      <a href="#contact">اتصل بنا</a>
+    </nav>
+  </header>
+
+  <!-- الأخبار العاجلة -->
+  <div class="breaking">
+    🔴 عاجل: المنتخب الجزائري يستعد لمباراته القادمة في تصفيات كأس العالم
+  </div>
+
+  <div class="container">
+
+    <!-- الخبر الرئيسي -->
+    <section class="hero" id="home">
+      <h1>⚽ مرحباً بكم في موقع الخضر</h1>
+      <p>كل ما يخص كرة القدم الجزائرية والعالمية — أخبار، تحليلات، ترتيب، ونتائج</p>
+    </section>
+
+    <!-- الأخبار -->
+    <h2 class="section-title" id="news">📰 آخر الأخبار</h2>
+    <div class="grid">
+      
+      <article class="card">
+        <div class="card-image">⚽</div>
+        <div class="card-body">
+          <span class="card-category">الخضر</span>
+          <h3>المنتخب الجزائري يحقق فوزاً مهماً في التصفيات</h3>
+          <p>حقق المنتخب الوطني الجزائري فوزاً مستحقاً في مباراته الأخيرة، ليعزز موقعه في صدارة مجموعته.</p>
+          <div class="card-meta"><span>📅 اليوم</span><span>👁️ 1.2K</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image">🏆</div>
+        <div class="card-body">
+          <span class="card-category">دوري أبطال</span>
+          <h3>مباريات قوية في دوري أبطال أوروب الأسبوع</h3>
+          <p>مواجهات نارية تنتظر عشاق كرة القدم في دوري الأبطال، مع مشاركة أبرز الأندية الأوروبية.</p>
+          <div class="card-meta"><span>📅 أمس</span><span>👁️ 3.5K</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image">🇩🇿</div>
+        <div class="card-body">
+          <span class="card-category">الرابطة</span>
+          <h3>الرابطة الجزائرية: نتائج الجولة الأخيرة</h3>
+          <p>شهدت الجولة الأخيرة من الدوري الجزائري نتائج مثيرة وتنافساً قوياً على المراكز الأولى.</p>
+          <div class="card-meta"><span>📅 منذ يومين</span><span>👁️ 2.1K</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image">⭐</div>
+        <div class="card-body">
+          <span class="card-category">نجوم</span>
+          <h3>لاعب جزائري يتألق في الدوري الأوروبي</h3>
+          <p>نجم المنتخب الجزائري يقدم أداءً استثنائياً مع ناديه الأوروبي هذا الموسم.</p>
+          <div class="card-meta"><span>📅 منذ 3 أيام</span><span>👁️ 4.2K</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image">🌍</div>
+        <div class="card-body">
+          <span class="card-category">عالمياً</span>
+          <h3>كأس العالم: استعدادات مكثفة للمنتخبات</h3>
+          <p>المنتخبات العالمية تكثف استعداداتها للاستحقاقات الدولية القادمة.</p>
+          <div class="card-meta"><span>📅 منذ 4 أيام</span><span>👁️ 5.8K</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image">🏟️</div>
+        <div class="card-body">
+          <span class="card-category">ملاعب</span>
+          <h3>ملعب جديد يحتضن مباريات المنتخب</h3>
+          <p>افتتاح ملعب حديث بسعة كبيرة لاحتضان مباريات المنتخب الوطني والمباريات الكبرى.</p>
+          <div class="card-meta"><span>📅 منذ أسبوع</span><span>👁️ 1.9K</span></div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- الترتيب -->
+    <h2 class="section-title" id="standings">📊 ترتيب الرابطة الجزائرية</h2>
+    <div class="standings">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>الفريق</th>
+            <th>لعب</th>
+            <th>فاز</th>
+            <th>تعادل</th>
+            <th>خسر</th>
+            <th>النقاط</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>شباب بلوزداد</td><td>10</td><td>7</td><td>2</td><td>1</td><td><strong>23</strong></td></tr>
+          <tr><td>2</td><td>مولودية الجزائر</td><td>10</td><td>6</td><td>3</td><td>1</td><td><strong>21</strong></td></tr>
+          <tr><td>3</td><td>اتحاد الجزائر</td><td>10</td><td>6</td><td>2</td><td>2</td><td><strong>20</strong></td></tr>
+          <tr><td>4</td><td>شبيبة القبائل</td><td>10</td><td>5</td><td>3</td><td>2</td><td><strong>18</strong></td></tr>
+          <tr><td>5</td><td>وفاق سطيف</td><td>10</td><td>4</td><td>4</td><td>2</td><td><strong>16</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- الفوتر -->
+  <footer id="contact">
+    <div class="footer-content">
+      <div>
+        <h4>🇩🇿 عن الموقع</h4>
+        <p style="font-size:14px;line-height:1.8">موقع متخصص في تغطية كرة القدم الجزائرية والعالمية. أخبار موثوقة وتحليلات احترافية.</p>
+      </div>
+      <div>
+        <h4>الأقسام</h4>
+        <a href="#news">الأخبار</a>
+        <a href="#dz">الخضر</a>
+        <a href="#world">عالمياً</a>
+        <a href="#standings">الترتيب</a>
+      </div>
+      <div>
+        <h4>تابعنا</h4>
+        <a href="#">📷 إنستغرام</a>
+        <a href="#">📘 فيسبوك</a>
+        <a href="#">🐦 تويتر</a>
+        <a href="#">📺 يوتيوب</a>
+      </div>
+      <div>
+        <h4>اتصل بنا</h4>
+        <a href="mailto:info@example.com">📧 info@example.com</a>
+        <p style="font-size:14px;margin-top:10px">نرحب بملاحظاتكم واقتراحاتكم</p>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 موقع الخضر — جميع الحقوق محفوظة
+    </div>
+  </footer>
+
+</body>
+</html>
