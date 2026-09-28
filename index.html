@@ -117,6 +117,114 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 25px;
     }
+    /* قسم الترتيب */
+.standings-section {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  direction: rtl;
+}
+
+.league-block {
+  margin-bottom: 40px;
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.league-title {
+  font-size: 22px;
+  color: #006233;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #D21034;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+}
+
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  font-size: 14px;
+}
+
+.standings-table thead {
+  background: linear-gradient(135deg, #006233, #007A3D);
+  color: white;
+}
+
+.standings-table th {
+  padding: 12px 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.standings-table td {
+  padding: 10px 8px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.standings-table tbody tr {
+  transition: background 0.2s;
+}
+
+.standings-table tbody tr:hover {
+  background: #f0f9f3;
+}
+
+.standings-table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.standings-table tbody tr.champion {
+  border-right: 4px solid #006233;
+}
+
+.standings-table tbody tr.relegation {
+  border-right: 4px solid #D21034;
+}
+
+.standings-table td:first-child {
+  font-weight: bold;
+  color: #006233;
+}
+
+.standings-table td strong {
+  color: #006233;
+  font-size: 15px;
+}
+
+.standings-table .champion td strong {
+  color: #006233;
+}
+
+.standings-table .relegation td strong {
+  color: #D21034;
+}
+
+@media (max-width: 768px) {
+  .league-title {
+    font-size: 18px;
+  }
+  .standings-table {
+    font-size: 12px;
+  }
+  .standings-table th,
+  .standings-table td {
+    padding: 8px 5px;
+  }
+  .league-block {
+    padding: 15px;
+  }
+}
     
     .news-card {
       background: #fff;
@@ -216,6 +324,262 @@
     <h1>🌍 مرحباً بكم في موقع الخضر</h1>
     <p>كل ما يخص كرة القدم الجزائرية والعالمية — أخبار، تحليلات، ترتيب، ونتائج</p>
   </section>
+  <!-- قسم الترتيب -->
+<section class="standings-section">
+  <h2 class="section-title">🏆 ترتيب الدوريات</h2>
+
+  <!-- ترتيب الدوري الجزائري -->
+  <div class="league-block">
+    <h3 class="league-title">🇩🇿 الرابطة المحترفة الجزائرية</h3>
+    <div class="table-wrapper">
+      <table class="standings-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>الفريق</th>
+            <th>لعب</th>
+            <th>فاز</th>
+            <th>تعادل</th>
+            <th>خسر</th>
+            <th>له</th>
+            <th>عليه</th>
+            <th>+/-</th>
+            <th>النقاط</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="champion">
+            <td>1</td>
+            <td>اتحاد الجزائر</td>
+            <td>3</td>
+            <td>2</td>
+            <td>1</td>
+            <td>0</td>
+            <td>5</td>
+            <td>2</td>
+            <td>+3</td>
+            <td><strong>7</strong></td>
+          </tr>
+          <tr class="champion">
+            <td>2</td>
+            <td>شباب بلوزداد</td>
+            <td>3</td>
+            <td>2</td>
+            <td>1</td>
+            <td>0</td>
+            <td>4</td>
+            <td>1</td>
+            <td>+3</td>
+            <td><strong>7</strong></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>مولودية الجزائر</td>
+            <td>2</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>4</td>
+            <td>0</td>
+            <td>+4</td>
+            <td><strong>6</strong></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>بارادو</td>
+            <td>3</td>
+            <td>1</td>
+            <td>2</td>
+            <td>0</td>
+            <td>3</td>
+            <td>2</td>
+            <td>+1</td>
+            <td><strong>5</strong></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>شباب قسنطينة</td>
+            <td>3</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>3</td>
+            <td>3</td>
+            <td>0</td>
+            <td><strong>4</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ترتيب الدوري الإنجليزي -->
+  <div class="league-block">
+    <h3 class="league-title">🏴󠁧󠁢󠁥󠁮󠁧󠁿 الدوري الإنجليزي الممتاز</h3>
+    <div class="table-wrapper">
+      <table class="standings-table">
+        <thead>
+          <tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr>
+        </thead>
+        <tbody>
+          <tr class="champion"><td>1</td><td>أرسنال</td><td>5</td><td>4</td><td>0</td><td>1</td><td><strong>12</strong></td></tr>
+          <tr class="champion"><td>2</td><td>مانشستر سيتي</td><td>5</td><td>4</td><td>0</td><td>1</td><td><strong>12</strong></td></tr>
+          <tr><td>3</td><td>ليدز يونايتد</td><td>5</td><td>2</td><td>2</td><td>1</td><td><strong>8</strong></td></tr>
+          <tr><td>4</td><td>هال سيتي</td><td>5</td><td>2</td><td>2</td><td>1</td><td><strong>8</strong></td></tr>
+          <tr><td>5</td><td>برايتون</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
+          <tr><td>6</td><td>تشيلسي</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
+          <tr><td>7</td><td>برينتفورد</td><td>5</td><td>2</td><td>0</td><td>3</td><td><strong>6</strong></td></tr>
+          <tr><td>8</td><td>ليفربول</td><td>5</td><td>2</td><td>0</td><td>3</td><td><strong>6</strong></td></tr>
+          <tr><td>9</td><td>إيفرتون</td><td>5</td><td>2</td><td>0</td><td>3</td><td><strong>6</strong></td></tr>
+          <tr><td>10</td><td>إيبسويتش تاون</td><td>5</td><td>2</td><td>0</td><td>3</td><td><strong>6</strong></td></tr>
+          <tr><td>11</td><td>نوتينجهام فورست</td><td>5</td><td>1</td><td>2</td><td>2</td><td><strong>5</strong></td></tr>
+          <tr><td>12</td><td>نيوكاسل</td><td>5</td><td>1</td><td>2</td><td>2</td><td><strong>5</strong></td></tr>
+          <tr><td>13</td><td>مانشستر يونايتد</td><td>5</td><td>1</td><td>1</td><td>3</td><td><strong>4</strong></td></tr>
+          <tr><td>14</td><td>سندرلاند</td><td>5</td><td>1</td><td>1</td><td>3</td><td><strong>4</strong></td></tr>
+          <tr><td>15</td><td>بورنموث</td><td>5</td><td>1</td><td>0</td><td>4</td><td><strong>3</strong></td></tr>
+          <tr><td>16</td><td>كريستال بالاس</td><td>5</td><td>1</td><td>0</td><td>4</td><td><strong>3</strong></td></tr>
+          <tr><td>17</td><td>توتنهام</td><td>5</td><td>0</td><td>2</td><td>3</td><td><strong>2</strong></td></tr>
+          <tr><td>18</td><td>فولهام</td><td>5</td><td>0</td><td>1</td><td>4</td><td><strong>1</strong></td></tr>
+          <tr><td>19</td><td>أستون فيلا</td><td>5</td><td>0</td><td>1</td><td>4</td><td><strong>1</strong></td></tr>
+          <tr class="relegation"><td>20</td><td>كوفنتري سيتي</td><td>5</td><td>0</td><td>0</td><td>5</td><td><strong>0</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ترتيب الدوري الإسباني -->
+  <div class="league-block">
+    <h3 class="league-title">🇪🇸 الدوري الإسباني</h3>
+    <div class="table-wrapper">
+      <table class="standings-table">
+        <thead>
+          <tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr>
+        </thead>
+        <tbody>
+          <tr class="champion"><td>1</td><td>برشلونة</td><td>7</td><td>7</td><td>0</td><td>0</td><td><strong>21</strong></td></tr>
+          <tr class="champion"><td>2</td><td>ريال مدريد</td><td>7</td><td>5</td><td>0</td><td>2</td><td><strong>15</strong></td></tr>
+          <tr class="champion"><td>3</td><td>ريال بيتيس</td><td>7</td><td>5</td><td>0</td><td>2</td><td><strong>15</strong></td></tr>
+          <tr><td>4</td><td>أتلتيكو مدريد</td><td>7</td><td>4</td><td>1</td><td>2</td><td><strong>13</strong></td></tr>
+          <tr><td>5</td><td>إشبيلية</td><td>7</td><td>4</td><td>1</td><td>2</td><td><strong>13</strong></td></tr>
+          <tr><td>6</td><td>ديبورتيفو ألافيس</td><td>7</td><td>3</td><td>2</td><td>2</td><td><strong>11</strong></td></tr>
+          <tr><td>7</td><td>ديبورتيفو لاكورونيا</td><td>7</td><td>3</td><td>0</td><td>4</td><td><strong>9</strong></td></tr>
+          <tr><td>8</td><td>أتلتيك بلباو</td><td>7</td><td>2</td><td>2</td><td>3</td><td><strong>8</strong></td></tr>
+          <tr><td>9</td><td>رايو فاليكانو</td><td>7</td><td>2</td><td>2</td><td>3</td><td><strong>8</strong></td></tr>
+          <tr><td>10</td><td>أوساسونا</td><td>7</td><td>2</td><td>2</td><td>3</td><td><strong>8</strong></td></tr>
+          <tr><td>11</td><td>سيلتا فيجو</td><td>7</td><td>2</td><td>1</td><td>4</td><td><strong>7</strong></td></tr>
+          <tr><td>12</td><td>إسبانيول</td><td>7</td><td>2</td><td>1</td><td>4</td><td><strong>7</strong></td></tr>
+          <tr><td>13</td><td>ريال سوسيداد</td><td>7</td><td>2</td><td>1</td><td>4</td><td><strong>7</strong></td></tr>
+          <tr><td>14</td><td>راسينغ سانتاندير</td><td>7</td><td>2</td><td>1</td><td>4</td><td><strong>7</strong></td></tr>
+          <tr><td>15</td><td>فياريال</td><td>7</td><td>1</td><td>2</td><td>4</td><td><strong>5</strong></td></tr>
+          <tr><td>16</td><td>ليفانتي</td><td>7</td><td>1</td><td>2</td><td>4</td><td><strong>5</strong></td></tr>
+          <tr><td>17</td><td>خيتافي</td><td>7</td><td>1</td><td>2</td><td>4</td><td><strong>5</strong></td></tr>
+          <tr class="relegation"><td>18</td><td>إلتشي</td><td>7</td><td>1</td><td>2</td><td>4</td><td><strong>5</strong></td></tr>
+          <tr class="relegation"><td>19</td><td>فالنسيا</td><td>7</td><td>1</td><td>1</td><td>5</td><td><strong>4</strong></td></tr>
+          <tr class="relegation"><td>20</td><td>ملقا</td><td>7</td><td>0</td><td>3</td><td>4</td><td><strong>3</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ترتيب الدوري الإيطالي -->
+  <div class="league-block">
+    <h3 class="league-title">🇮🇹 الدوري الإيطالي</h3>
+    <div class="table-wrapper">
+      <table class="standings-table">
+        <thead>
+          <tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr>
+        </thead>
+        <tbody>
+          <tr class="champion"><td>1</td><td>روما</td><td>6</td><td>4</td><td>1</td><td>1</td><td><strong>13</strong></td></tr>
+          <tr class="champion"><td>2</td><td>إنتر ميلان</td><td>6</td><td>4</td><td>1</td><td>1</td><td><strong>13</strong></td></tr>
+          <tr class="champion"><td>3</td><td>لاتسيو</td><td>6</td><td>4</td><td>1</td><td>1</td><td><strong>13</strong></td></tr>
+          <tr><td>4</td><td>كالياري</td><td>6</td><td>4</td><td>0</td><td>2</td><td><strong>12</strong></td></tr>
+          <tr><td>5</td><td>ميلان</td><td>6</td><td>3</td><td>2</td><td>1</td><td><strong>11</strong></td></tr>
+          <tr><td>6</td><td>فروزينوني</td><td>6</td><td>3</td><td>1</td><td>2</td><td><strong>10</strong></td></tr>
+          <tr><td>7</td><td>يوفنتوس</td><td>6</td><td>3</td><td>1</td><td>2</td><td><strong>10</strong></td></tr>
+          <tr><td>8</td><td>كومو</td><td>6</td><td>3</td><td>1</td><td>2</td><td><strong>10</strong></td></tr>
+          <tr><td>9</td><td>ساسولو</td><td>6</td><td>2</td><td>1</td><td>3</td><td><strong>7</strong></td></tr>
+          <tr><td>10</td><td>نابولي</td><td>6</td><td>2</td><td>1</td><td>3</td><td><strong>7</strong></td></tr>
+          <tr><td>11</td><td>أتالانتا</td><td>6</td><td>1</td><td>3</td><td>2</td><td><strong>6</strong></td></tr>
+          <tr><td>12</td><td>ليتشي</td><td>6</td><td>1</td><td>3</td><td>2</td><td><strong>6</strong></td></tr>
+          <tr><td>13</td><td>أودينيزي</td><td>6</td><td>1</td><td>1</td><td>4</td><td><strong>4</strong></td></tr>
+          <tr><td>14</td><td>تورينو</td><td>6</td><td>1</td><td>1</td><td>4</td><td><strong>4</strong></td></tr>
+          <tr><td>15</td><td>بارما</td><td>6</td><td>1</td><td>1</td><td>4</td><td><strong>4</strong></td></tr>
+          <tr><td>16</td><td>مونزا</td><td>6</td><td>1</td><td>1</td><td>4</td><td><strong>4</strong></td></tr>
+          <tr><td>17</td><td>فيورنتينا</td><td>6</td><td>0</td><td>4</td><td>2</td><td><strong>4</strong></td></tr>
+          <tr class="relegation"><td>18</td><td>بولونيا</td><td>6</td><td>0</td><td>2</td><td>4</td><td><strong>2</strong></td></tr>
+          <tr class="relegation"><td>19</td><td>جنوى</td><td>6</td><td>0</td><td>1</td><td>5</td><td><strong>1</strong></td></tr>
+          <tr class="relegation"><td>20</td><td>فينيسيا</td><td>6</td><td>0</td><td>0</td><td>6</td><td><strong>0</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ترتيب الدوري الألماني -->
+  <div class="league-block">
+    <h3 class="league-title">🇩🇪 الدوري الألماني</h3>
+    <div class="table-wrapper">
+      <table class="standings-table">
+        <thead>
+          <tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr>
+        </thead>
+        <tbody>
+          <tr class="champion"><td>1</td><td>بوروسيا دورتموند</td><td>5</td><td>4</td><td>0</td><td>1</td><td><strong>12</strong></td></tr>
+          <tr class="champion"><td>2</td><td>بايرن ميونخ</td><td>5</td><td>3</td><td>1</td><td>1</td><td><strong>10</strong></td></tr>
+          <tr class="champion"><td>3</td><td>فرايبورغ</td><td>5</td><td>3</td><td>1</td><td>1</td><td><strong>10</strong></td></tr>
+          <tr><td>4</td><td>أوغسبورغ</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
+          <tr><td>5</td><td>باير ليفركوزن</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
+          <tr><td>6</td><td>ماينز</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
+          <tr><td>7</td><td>إلفرسبيرغ</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
+          <tr><td>8</td><td>فيردر بريمن</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
+          <tr><td>9</td><td>لايبزيغ</td><td>5</td><td>2</td><td>0</td><td>3</td><td><strong>6</strong></td></tr>
+          <tr><td>10</td><td>آينتراخت فرانكفورت</td><td>5</td><td>1</td><td>2</td><td>2</td><td><strong>5</strong></td></tr>
+          <tr><td>11</td><td>شالكه</td><td>5</td><td>1</td><td>2</td><td>2</td><td><strong>5</strong></td></tr>
+          <tr><td>12</td><td>بادربورن</td><td>5</td><td>1</td><td>1</td><td>3</td><td><strong>4</strong></td></tr>
+          <tr><td>13</td><td>كولن</td><td>5</td><td>1</td><td>1</td><td>3</td><td><strong>4</strong></td></tr>
+          <tr><td>14</td><td>هوفنهايم</td><td>5</td><td>1</td><td>0</td><td>4</td><td><strong>3</strong></td></tr>
+          <tr><td>15</td><td>شتوتغارت</td><td>5</td><td>1</td><td>0</td><td>4</td><td><strong>3</strong></td></tr>
+          <tr><td>16</td><td>هامبورغ</td><td>5</td><td>0</td><td>3</td><td>2</td><td><strong>3</strong></td></tr>
+          <tr class="relegation"><td>17</td><td>يونيون برلين</td><td>5</td><td>0</td><td>1</td><td>4</td><td><strong>1</strong></td></tr>
+          <tr class="relegation"><td>18</td><td>بوروسيا مونشنغلادباخ</td><td>5</td><td>0</td><td>0</td><td>5</td><td><strong>0</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ترتيب الدوري الفرنسي -->
+  <div class="league-block">
+    <h3 class="league-title">🇫🇷 الدوري الفرنسي</h3>
+    <div class="table-wrapper">
+      <table class="standings-table">
+        <thead>
+          <tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr>
+        </thead>
+        <tbody>
+          <tr class="champion"><td>1</td><td>باريس سان جيرمان</td><td>5</td><td>5</td><td>0</td><td>0</td><td><strong>15</strong></td></tr>
+          <tr class="champion"><td>2</td><td>مارسيليا</td><td>5</td><td>4</td><td>0</td><td>1</td><td><strong>12</strong></td></tr>
+          <tr class="champion"><td>3</td><td>موناكو</td><td>5</td><td>4</td><td>0</td><td>1</td><td><strong>12</strong></td></tr>
+          <tr><td>4</td><td>ليون</td><td>5</td><td>3</td><td>1</td><td>1</td><td><strong>10</strong></td></tr>
+          <tr><td>5</td><td>ليل</td><td>5</td><td>3</td><td>0</td><td>2</td><td><strong>9</strong></td></tr>
+          <tr><td>6</td><td>رين</td><td>5</td><td>2</td><td>2</td><td>1</td><td><strong>8</strong></td></tr>
+          <tr><td>7</td><td>نيس</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
+          <tr><td>8</td><td>لانس</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
+          <tr><td>9</td><td>ستراسبورغ</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
+          <tr><td>10</td><td>تولوز</td><td>5</td><td>2</td><td>0</td><td>3</td><td><strong>6</strong></td></tr>
+          <tr><td>11</td><td>بريست</td><td>5</td><td>1</td><td>2</td><td>2</td><td><strong>5</strong></td></tr>
+          <tr><td>12</td><td>أنجيه</td><td>5</td><td>1</td><td>2</td><td>2</td><td><strong>5</strong></td></tr>
+          <tr><td>13</td><td>أوكسير</td><td>5</td><td>1</td><td>2</td><td>2</td><td><strong>5</strong></td></tr>
+          <tr><td>14</td><td>نانت</td><td>5</td><td>1</td><td>1</td><td>3</td><td><strong>4</strong></td></tr>
+          <tr><td>15</td><td>لوهافر</td><td>5</td><td>1</td><td>1</td><td>3</td><td><strong>4</strong></td></tr>
+          <tr><td>16</td><td>ميتز</td><td>5</td><td>1</td><td>0</td><td>4</td><td><strong>3</strong></td></tr>
+          <tr class="relegation"><td>17</td><td>لوريان</td><td>5</td><td>0</td><td>2</td><td>3</td><td><strong>2</strong></td></tr>
+          <tr class="relegation"><td>18</td><td>باريس FC</td><td>5</td><td>0</td><td>1</td><td>4</td><td><strong>1</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</section>
 
   <!-- قسم الأخبار -->
   <section class="news-section">
