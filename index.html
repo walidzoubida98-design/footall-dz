@@ -4,7 +4,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DZ كورة - كرة القدم الجزائرية والعالمية</title>
-  <style>
+ /* النافذة المنبثقة */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: 15px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 30px;
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #D21034;
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.modal-close:hover {
+  background: #a00d28;
+}
+
+.modal-box h2 {
+  color: #006233;
+  font-size: 22px;
+  margin-bottom: 15px;
+  border-right: 5px solid #D21034;
+  padding-right: 12px;
+}
+
+.modal-box .modal-date {
+  display: inline-block;
+  background: #D21034;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.modal-box p {
+  color: #444;
+  line-height: 1.9;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.modal-box .modal-badge {
+  background: linear-gradient(135deg, #006233, #007A3D);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px;
+} <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
     body { background: #f4f6f9; color: #222; line-height: 1.7; }
     
@@ -230,5 +320,86 @@
     <p>© 2026 DZ كورة - جميع الحقوق محفوظة</p>
   </footer>
 
-</body>
+<!-- النافذة المنبثقة -->
+<div class="modal-overlay" id="newsModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-badge" id="modalBadge"></span>
+    <span class="modal-date" id="modalDate"></span>
+    <h2 id="modalTitle"></h2>
+    <div id="modalBody"></div>
+  </div>
+</div>
+<script>
+  // بيانات الأخبار الكاملة
+  const newsData = {
+    news1: {
+      badge: "المنتخب الوطني",
+      date: "24 سبتمبر 2026",
+      title: "الخضر يفتتحون تصفيات 'كان 2027' بفوز مستحق على زامبيا",
+      body: `
+        <p>حقق المنتخب الوطني الجزائري فوزاً ثميناً بنتيجة 3-1 على منتخب زامبيا، في أولى مبارياته بتصفيات كأس أمم أفريقيا 2027، على ملعب حسين آيت أحمد بتيزي وزو.</p>
+        <p><strong>أهداف المباراة:</strong></p>
+        <p>⚽ <strong>جوان حجام</strong> (الدقيقة 2) — الهدف الأول بعد تمريرة من أمين عمورة.</p>
+        <p>⚽ <strong>فاشيون ساكالا</strong> (الدقيقة 57) — هدف التعادل لزامبيا.</p>
+        <p>⚽ <strong>إبراهيم مازة</strong> (الدقيقة 67) — الهدف الثاني بعد تمريرة من عمورة.</p>
+        <p>⚽ <strong>أنيس حاج موسى</strong> (الدقيقة 74) — الهدف الثالث.</p>
+        <p>بهذا الفوز، يتصدر المنتخب الجزائري المجموعة التاسعة برصيد 3 نقاط، ويستعد لمواجهة بوروندي في الجولة القادمة.</p>
+      `
+    },
+    news2: {
+      badge: "الدوري الجزائري",
+      date: "19 سبتمبر 2026",
+      title: "الدوري الجزائري: اتحاد الجزائر وشباب بلوزداد يتقاسمان الصدارة",
+      body: `
+        <p>بعد مرور ثلاث جولات من الموسم الجديد 2026/27، يتصدر <strong>اتحاد الجزائر</strong> و<strong>شباب بلوزداد</strong> ترتيب الرابطة المحترفة برصيد 7 نقاط لكل فريق.</p>
+        <p>يحتل اتحاد الجزائر المرتبة الأولى بفارق الأهداف (+3)، يليه شباب بلوزداد بنفس الرصيد، في بداية قوية لكلا الفريقين.</p>
+        <p><strong>أبرز نتائج الجولة الثالثة:</strong></p>
+        <p>• شباب بلوزداد يفوز على اتحاد بسكرة 1-0 خارج الديار.</p>
+        <p>• وفاق سطيف يكتسح شباب قسنطينة 5-1.</p>
+        <p>• شبيبة الأبيار يفوز على شبيبة الساورة 4-0.</p>
+      `
+    },
+    news3: {
+      badge: "قمة مرتقبة",
+      date: "أكتوبر 2026",
+      title: "الجولة الخامسة: قمة نارية بين وفاق سطيف وشبيبة القبائل",
+      body: `
+        <p>تتجه أنظار عشاق كرة القدم الجزائرية نحو قمة الجولة الخامسة من الدوري، حيث يستضيف <strong>وفاق سطيف</strong> غريمه <strong>شبيبة القبائل</strong> في مباراة قوية.</p>
+        <p>وفي نفس الجولة، يحل <strong>اتحاد الجزائر</strong> ضيفاً على <strong>شبيبة الساورة</strong> في مواجهة صعبة، بينما يسعى <strong>شباب بلوزداد</strong> لمواصلة صدارته.</p>
+        <p><strong>المباريات مبرمجة أيام 12-14 أكتوبر 2026.</strong></p>
+      `
+    }
+  };
+
+  function openModal(newsId) {
+    const news = newsData[newsId];
+    if (!news) return;
+    
+    document.getElementById('modalBadge').textContent = news.badge;
+    document.getElementById('modalDate').textContent = news.date;
+    document.getElementById('modalTitle').textContent = news.title;
+    document.getElementById('modalBody').innerHTML = news.body;
+    document.getElementById('newsModal').classList.add('active');
+    
+    // منع تمرير الصفحة عند فتح النافذة
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('newsModal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  // إغلاق النافذة عند الضغط على الخلفية
+  document.getElementById('newsModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // إغلاق النافذة عند الضغط على Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+N</body>
 </html>
