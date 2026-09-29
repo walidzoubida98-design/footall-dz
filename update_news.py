@@ -3,17 +3,21 @@ import time
 from google import genai
 
 api_key = os.environ.get("GEMINI_API_KEY")
-client = genai.Client(api_key=api_key)
+
+client = genai.Client(
+    api_key=api_key,
+    http_options={'timeout': 60000}
+)
 
 prompt = """
 اكتب ملخصاً يومياً موجزاً عن آخر الأخبار الوطنية أو الدولية. 
 يجب أن يكون النص ما بين سطرين إلى ثلاثة أسطر.
 """
 
-def generate_with_retry(prompt, max_retries=5, wait=30):
+def generate_with_retry(prompt, max_retries=3, wait=10):
     for attempt in range(max_retries):
         try:
-            chat = client.chats.create(model="gemini-3.8-flash")
+            chat = client.chats.create(model="gemini-2.5-flash")
             response = chat.send_message(prompt)
             return response.text
         except Exception as e:
@@ -21,7 +25,7 @@ def generate_with_retry(prompt, max_retries=5, wait=30):
             if "503" in error_str or "UNAVAILABLE" in error_str:
                 print(f"⚠️ محاولة {attempt+1}/{max_retries} فشلت، انتظار {wait}s...")
                 time.sleep(wait)
-                wait = wait * 2
+                wait *= 2
             else:
                 raise e
     return None
@@ -29,14 +33,12 @@ def generate_with_retry(prompt, max_retries=5, wait=30):
 
 try:
     news_text = generate_with_retry(prompt)
-
     if news_text:
         news_text = news_text.strip()
         print("✅ تم توليد النص بنجاح")
         print(news_text)
     else:
         news_text = "تابعوا آخر الأخبار الوطنية والدولية من مصادرنا الموثوقة."
-
 except Exception as e:
     print(f"❌ خطأ: {e}")
     news_text = "تابعوا آخر الأخبار الوطنية والدولية من مصادرنا الموثوقة."
