@@ -60,44 +60,38 @@
       .league-block { padding: 15px; }
       .hero h1 { font-size: 24px; }
     }
- .news-section {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 0 15px;
-}
 
-.news-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.news-item {
-    background: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    border-right: 4px solid #D21034;
-    transition: transform 0.3s ease;
-}
-
-.news-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-}
-
-.news-item h3 {
-    color: #006233;
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-
-.news-item p {
-    color: #444;
-    line-height: 1.7;
-    font-size: 15px;
-} </style>
+    /* قسم الأخبار التلقائية */
+    .news-auto-section {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+    .news-auto-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        border-right: 5px solid #D21034;
+    }
+    .news-auto-card h3 {
+        color: #006233;
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+    .news-auto-card p {
+        color: #444;
+        line-height: 1.9;
+        font-size: 16px;
+    }
+    .news-auto-date {
+        color: #D21034;
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: block;
+    }
+ </style>
 </head>
 <body>
 
@@ -112,28 +106,7 @@
       <a href="#standings">الترتيب</a>
       <a href="#">اتصل بنا</a>
     </nav>
-  </header><!-- قسم الأخبار التلقائية -->
-<section class="news-section">
-    <h2 style="text-align: center; color: #006233; margin: 20px 0;">📰 آخر الأخبار</h2>
-    <div class="news-container">
-<div class="news-item">
-    <h3>📰 خبر جديد</h3>
-    <p>شهدت الساحة الرياضية الجزائرية تطورات جديدة، تابعونا لكل الأخبار الحصرية.</p>
-</div>
-
-<div class="news-item">
-    <h3>📰 خبر جديد</h3>
-    <p>شهدت الساحة الرياضية الجزائرية تطورات جديدة، تابعونا لكل الأخبار الحصرية.</p>
-</div>
-
-<div class="news-item">
-    <h3>📰 خبر جديد</h3>
-    <p>شهدت الساحة الرياضية الجزائرية تطورات جديدة، تابعونا لكل الأخبار الحصرية.</p>
-</div>
-
-        <!-- سيتم إضافة الأخبار هنا تلقائياً -->
-    </div>
-</section>
+  </header>
 
   <div class="breaking">🔴 عاجل: المنتخب الجزائري يستعد لمواجهة بوروندي في تصفيات كان 2027</div>
 
@@ -142,250 +115,19 @@
     <p>كل ما يخص كرة القدم الجزائرية والعالمية — أخبار، تحليلات، ترتيب، ونتائج</p>
   </section>
 
-  <!-- قسم الأخبار -->
-  <section class="news-section" id="news">
+  <!-- ⚡ قسم الأخبار التلقائية من الذكاء الاصطناعي -->
+  <section class="news-auto-section" id="news">
     <h2 class="section-title">📰 آخر الأخبار</h2>
-    <div class="news-grid">
-      <article class="news-card">
-        <div class="news-badge">المنتخب الوطني</div>
-        <div class="news-content">
-          <span class="news-date">24 سبتمبر 2026</span>
-          <h3>الخضر يفتتحون تصفيات "كان 2027" بفوز مستحق على زامبيا</h3>
-          <p>حقق المنتخب الوطني الجزائري فوزاً ثميناً بنتيجة 3-1 على منتخب زامبيا في أولى مبارياته بتصفيات كأس أمم أفريقيا 2027...</p>
-          <a href="#" class="read-more">اقرأ المزيد ←</a>
-        </div>
-      </article>
-      <article class="news-card">
-        <div class="news-badge">الدوري الجزائري</div>
-        <div class="news-content">
-          <span class="news-date">19 سبتمبر 2026</span>
-          <h3>الدوري الجزائري: اتحاد الجزائر وشباب بلوزداد يتقاسمان الصدارة</h3>
-          <p>بعد مرور ثلاث جولات من الموسم الجديد 2026/27، يتصدر اتحاد الجزائر وشباب بلوزداد ترتيب الرابطة المحترفة برصيد 7 نقاط لكل فريق...</p>
-          <a href="#" class="read-more">اقرأ المزيد ←</a>
-        </div>
-      </article>
-      <article class="news-card">
-        <div class="news-badge">قمة مرتقبة</div>
-        <div class="news-content">
-          <span class="news-date">أكتوبر 2026</span>
-          <h3>الجولة الخامسة: قمة نارية بين وفاق سطيف وشبيبة القبائل</h3>
-          <p>تتجه أنظار عشاق كرة القدم الجزائرية نحو قمة الجولة الخامسة من الدوري، حيث يستضيف وفاق سطيف غريمه شبيبة القبائل...</p>
-          <a href="#" class="read-more">اقرأ المزيد ←</a>
-        </div>
-      </article>
+    <div class="news-auto-card" id="auto-news">
+      <span class="news-auto-date">🔄 يتم التحديث تلقائياً...</span>
+      <h3>📰 خبر اليوم</h3>
+      <p>سيظهر الخبر هنا تلقائياً بعد أول تشغيل ناجح.</p>
     </div>
-  </section>
-
-  <!-- قسم الترتيب -->
-  <section class="standings-section" id="standings">
-    <h2 class="section-title">🏆 ترتيب الدوريات</h2>
-
-    <!-- الدوري الجزائري -->
-    <div class="league-block">
-      <h3 class="league-title">🇩🇿 الرابطة المحترفة الجزائرية</h3>
-      <div class="table-wrapper">
-        <table class="standings-table">
-          <thead><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr></thead>
-          <tbody>
-            <tr class="champion"><td>1</td><td>اتحاد الجزائر</td><td>3</td><td>2</td><td>1</td><td>0</td><td><strong>7</strong></td></tr>
-            <tr class="champion"><td>2</td><td>شباب بلوزداد</td><td>3</td><td>2</td><td>1</td><td>0</td><td><strong>7</strong></td></tr>
-            <tr><td>3</td><td>مولودية الجزائر</td><td>2</td><td>2</td><td>0</td><td>0</td><td><strong>6</strong></td></tr>
-            <tr><td>4</td><td>بارادو</td><td>3</td><td>1</td><td>2</td><td>0</td><td><strong>5</strong></td></tr>
-            <tr><td>5</td><td>شباب قسنطينة</td><td>3</td><td>1</td><td>1</td><td>1</td><td><strong>4</strong></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- الدوري الإنجليزي -->
-    <div class="league-block">
-      <h3 class="league-title">🏴󠁧󠁢󠁥󠁮󠁧󠁿 الدوري الإنجليزي الممتاز</h3>
-      <div class="table-wrapper">
-        <table class="standings-table">
-          <thead><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr></thead>
-          <tbody>
-            <tr class="champion"><td>1</td><td>أرسنال</td><td>5</td><td>4</td><td>0</td><td>1</td><td><strong>12</strong></td></tr>
-            <tr class="champion"><td>2</td><td>مانشستر سيتي</td><td>5</td><td>4</td><td>0</td><td>1</td><td><strong>12</strong></td></tr>
-            <tr><td>3</td><td>ليدز يونايتد</td><td>5</td><td>2</td><td>2</td><td>1</td><td><strong>8</strong></td></tr>
-            <tr><td>4</td><td>هال سيتي</td><td>5</td><td>2</td><td>2</td><td>1</td><td><strong>8</strong></td></tr>
-            <tr><td>5</td><td>برايتون</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- الدوري الإسباني -->
-    <div class="league-block">
-      <h3 class="league-title">🇪🇸 الدوري الإسباني</h3>
-      <div class="table-wrapper">
-        <table class="standings-table">
-          <thead><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr></thead>
-          <tbody>
-            <tr class="champion"><td>1</td><td>برشلونة</td><td>7</td><td>7</td><td>0</td><td>0</td><td><strong>21</strong></td></tr>
-            <tr class="champion"><td>2</td><td>ريال مدريد</td><td>7</td><td>5</td><td>0</td><td>2</td><td><strong>15</strong></td></tr>
-            <tr><td>3</td><td>أتلتيكو مدريد</td><td>7</td><td>4</td><td>1</td><td>2</td><td><strong>13</strong></td></tr>
-            <tr><td>4</td><td>إشبيلية</td><td>7</td><td>4</td><td>1</td><td>2</td><td><strong>13</strong></td></tr>
-            <tr><td>5</td><td>فياريال</td><td>7</td><td>1</td><td>2</td><td>4</td><td><strong>5</strong></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- الدوري الإيطالي -->
-    <div class="league-block">
-      <h3 class="league-title">🇮🇹 الدوري الإيطالي</h3>
-      <div class="table-wrapper">
-        <table class="standings-table">
-          <thead><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr></thead>
-          <tbody>
-            <tr class="champion"><td>1</td><td>روما</td><td>6</td><td>4</td><td>1</td><td>1</td><td><strong>13</strong></td></tr>
-            <tr class="champion"><td>2</td><td>إنتر ميلان</td><td>6</td><td>4</td><td>1</td><td>1</td><td><strong>13</strong></td></tr>
-            <tr><td>3</td><td>لاتسيو</td><td>6</td><td>4</td><td>1</td><td>1</td><td><strong>13</strong></td></tr>
-            <tr><td>4</td><td>ميلان</td><td>6</td><td>3</td><td>2</td><td>1</td><td><strong>11</strong></td></tr>
-            <tr><td>5</td><td>يوفنتوس</td><td>6</td><td>3</td><td>1</td><td>2</td><td><strong>10</strong></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- الدوري الألماني -->
-    <div class="league-block">
-      <h3 class="league-title">🇩🇪 الدوري الألماني</h3>
-      <div class="table-wrapper">
-        <table class="standings-table">
-          <thead><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr></thead>
-          <tbody>
-            <tr class="champion"><td>1</td><td>بوروسيا دورتموند</td><td>5</td><td>4</td><td>0</td><td>1</td><td><strong>12</strong></td></tr>
-            <tr class="champion"><td>2</td><td>بايرن ميونخ</td><td>5</td><td>3</td><td>1</td><td>1</td><td><strong>10</strong></td></tr>
-            <tr><td>3</td><td>فرايبورغ</td><td>5</td><td>3</td><td>1</td><td>1</td><td><strong>10</strong></td></tr>
-            <tr><td>4</td><td>باير ليفركوزن</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
-            <tr><td>5</td><td>لايبزيغ</td><td>5</td><td>2</td><td>0</td><td>3</td><td><strong>6</strong></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- الدوري الفرنسي -->
-    <div class="league-block">
-      <h3 class="league-title">🇫🇷 الدوري الفرنسي</h3>
-      <div class="table-wrapper">
-        <table class="standings-table">
-          <thead><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr></thead>
-          <tbody>
-            <tr class="champion"><td>1</td><td>باريس سان جيرمان</td><td>5</td><td>5</td><td>0</td><td>0</td><td><strong>15</strong></td></tr>
-            <tr class="champion"><td>2</td><td>مارسيليا</td><td>5</td><td>4</td><td>0</td><td>1</td><td><strong>12</strong></td></tr>
-            <tr><td>3</td><td>موناكو</td><td>5</td><td>4</td><td>0</td><td>1</td><td><strong>12</strong></td></tr>
-            <tr><td>4</td><td>ليون</td><td>5</td><td>3</td><td>1</td><td>1</td><td><strong>10</strong></td></tr>
-            <tr><td>5</td><td>ليل</td><td>5</td><td>3</td><td>0</td><td>2</td><td><strong>9</strong></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
   </section>
 
   <footer>
     <p>© 2026 DZ كورة - جميع الحقوق محفوظة</p>
   </footer>
-
-<!-- النافذة المنبثقة -->
-<div class="modal-overlay" id="newsModal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <span class="modal-badge" id="modalBadge"></span>
-    <span class="modal-date" id="modalDate"></span>
-    <h2 id="modalTitle"></h2>
-    <div id="modalBody"></div>
-  </div>
-</div>
-<script>
-  // بيانات الأخبار الكاملة
-  const newsData = {
-    news1: {
-      badge: "المنتخب الوطني",
-      date: "24 سبتمبر 2026",
-      title: "الخضر يفتتحون تصفيات 'كان 2027' بفوز مستحق على زامبيا",
-      body: `
-        <p>حقق المنتخب الوطني الجزائري فوزاً ثميناً بنتيجة 3-1 على منتخب زامبيا، في أولى مبارياته بتصفيات كأس أمم أفريقيا 2027، على ملعب حسين آيت أحمد بتيزي وزو.</p>
-        <p><strong>أهداف المباراة:</strong></p>
-        <p>⚽ <strong>جوان حجام</strong> (الدقيقة 2) — الهدف الأول بعد تمريرة من أمين عمورة.</p>
-        <p>⚽ <strong>فاشيون ساكالا</strong> (الدقيقة 57) — هدف التعادل لزامبيا.</p>
-        <p>⚽ <strong>إبراهيم مازة</strong> (الدقيقة 67) — الهدف الثاني بعد تمريرة من عمورة.</p>
-        <p>⚽ <strong>أنيس حاج موسى</strong> (الدقيقة 74) — الهدف الثالث.</p>
-        <p>بهذا الفوز، يتصدر المنتخب الجزائري المجموعة التاسعة برصيد 3 نقاط، ويستعد لمواجهة بوروندي في الجولة القادمة.</p>
-      `
-    },
-    news2: {
-      badge: "الدوري الجزائري",
-      date: "19 سبتمبر 2026",
-      title: "الدوري الجزائري: اتحاد الجزائر وشباب بلوزداد يتقاسمان الصدارة",
-      body: `
-        <p>بعد مرور ثلاث جولات من الموسم الجديد 2026/27، يتصدر <strong>اتحاد الجزائر</strong> و<strong>شباب بلوزداد</strong> ترتيب الرابطة المحترفة برصيد 7 نقاط لكل فريق.</p>
-        <p>يحتل اتحاد الجزائر المرتبة الأولى بفارق الأهداف (+3)، يليه شباب بلوزداد بنفس الرصيد، في بداية قوية لكلا الفريقين.</p>
-        <p><strong>أبرز نتائج الجولة الثالثة:</strong></p>
-        <p>• شباب بلوزداد يفوز على اتحاد بسكرة 1-0 خارج الديار.</p>
-        <p>• وفاق سطيف يكتسح شباب قسنطينة 5-1.</p>
-        <p>• شبيبة الأبيار يفوز على شبيبة الساورة 4-0.</p>
-      `
-    },
-    news3: {
-      badge: "قمة مرتقبة",
-      date: "أكتوبر 2026",
-      title: "الجولة الخامسة: قمة نارية بين وفاق سطيف وشبيبة القبائل",
-      body: `
-        <p>تتجه أنظار عشاق كرة القدم الجزائرية نحو قمة الجولة الخامسة من الدوري، حيث يستضيف <strong>وفاق سطيف</strong> غريمه <strong>شبيبة القبائل</strong> في مباراة قوية.</p>
-        <p>وفي نفس الجولة، يحل <strong>اتحاد الجزائر</strong> ضيفاً على <strong>شبيبة الساورة</strong> في مواجهة صعبة، بينما يسعى <strong>شباب بلوزداد</strong> لمواصلة صدارته.</p>
-        <p><strong>المباريات مبرمجة أيام 12-14 أكتوبر 2026.</strong></p>
-      `
-    }
-  };
-
-  function openModal(newsId) {
-    const news = newsData[newsId];
-    if (!news) return;
-    
-    document.getElementById('modalBadge').textContent = news.badge;
-    document.getElementById('modalDate').textContent = news.date;
-    document.getElementById('modalTitle').textContent = news.title;
-    document.getElementById('modalBody').innerHTML = news.body;
-    document.getElementById('newsModal').classList.add('active');
-    
-    // منع تمرير الصفحة عند فتح النافذة
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    document.getElementById('newsModal').classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-
-  // إغلاق النافذة عند الضغط على الخلفية
-  document.getElementById('newsModal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-  });
-
-  // إغلاق النافذة عند الضغط على Escape
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
-  });
-</script>
-N
-<div class="news-section" style="padding: 30px 20px; max-width: 1200px; margin: 0 auto;">
-    <h3 style="color: #006233; margin-bottom: 15px;">📰 خبر اليوم</h3>
-    <p style="line-height: 1.8; color: #222;">تابعوا آخر الأخبار الوطنية والدولية من مصادرنا الموثوقة.</p>
-</div>
-
-
-<div class="news-section" style="padding: 30px 20px; max-width: 1200px; margin: 0 auto;">
-    <h3 style="color: #006233; margin-bottom: 15px;">📰 خبر اليوم</h3>
-    <p style="line-height: 1.8; color: #222;">تابعوا آخر الأخبار الوطنية والدولية من مصادرنا الموثوقة.</p>
-</div>
-
-
-<div class="news-section" style="padding: 30px 20px; max-width: 1200px; margin: 0 auto;">
-    <h3 style="color: #006233; margin-bottom: 15px;">📰 خبر اليوم</h3>
-    <p style="line-height: 1.8; color: #222;">تابعوا آخر الأخبار الوطنية والدولية من مصادرنا الموثوقة.</p>
-</div>
 
 </body>
 </html>
