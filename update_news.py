@@ -6,15 +6,14 @@ api_key = os.environ.get("GEMINI_API_KEY")
 
 client = genai.Client(
     api_key=api_key,
-    http_options={'timeout': 60000}
+    http_options={'timeout': 180000}
 )
 
 prompt = """
-اكتب ملخصاً يومياً موجزاً عن آخر الأخبار الوطنية أو الدولية. 
-يجب أن يكون النص ما بين سطرين إلى ثلاثة أسطر.
+اكتب ملخصاً يومياً موجزاً عن آخر الأخبار الوطنية أو الدولية في سطرين. .
 """
 
-def generate_with_retry(prompt, max_retries=3, wait=10):
+def generate_with_retry(prompt, max_retries=5, wait=15):
     for attempt in range(max_retries):
         try:
             chat = client.chats.create(model="gemini-3.8-flash")
