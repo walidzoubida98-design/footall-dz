@@ -60,37 +60,6 @@
       .league-block { padding: 15px; }
       .hero h1 { font-size: 24px; }
     }
-
-    /* قسم الأخبار التلقائية */
-    .news-auto-section {
-        max-width: 1000px;
-        margin: 30px auto;
-        padding: 0 15px;
-    }
-    .news-auto-card {
-        background: #fff;
-        border-radius: 12px;
-        padding: 25px;
-        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-        border-right: 5px solid #D21034;
-    }
-    .news-auto-card h3 {
-        color: #006233;
-        margin-bottom: 15px;
-        font-size: 20px;
-    }
-    .news-auto-card p {
-        color: #444;
-        line-height: 1.9;
-        font-size: 16px;
-    }
-    .news-auto-date {
-        color: #D21034;
-        font-size: 13px;
-        font-weight: bold;
-        margin-bottom: 10px;
-        display: block;
-    }
  </style>
 </head>
 <body>
@@ -115,14 +84,159 @@
     <p>كل ما يخص كرة القدم الجزائرية والعالمية — أخبار، تحليلات، ترتيب، ونتائج</p>
   </section>
 
-  <!-- ⚡ قسم الأخبار التلقائية من الذكاء الاصطناعي -->
-  <section class="news-auto-section" id="news">
+  <!-- قسم الأخبار -->
+  <section class="news-section" id="news">
     <h2 class="section-title">📰 آخر الأخبار</h2>
-        <div class="news-auto-card" id="auto-news">
-      <span class="news-auto-date">📅 29/09/2026</span>
-      <h3>📰 خبر اليوم</h3>
-      <p>شهدت الساحة الرياضية الجزائرية تطورات جديدة، تابعونا لكل الأخبار الحصرية.</p>
+    <div class="news-grid">
+      <article class="news-card">
+        <div class="news-badge">المنتخب الوطني</div>
+        <div class="news-content">
+          <span class="news-date">24 سبتمبر 2026</span>
+          <h3>الخضر يفتتحون تصفيات "كان 2027" بفوز مستحق على زامبيا</h3>
+          <p>حقق المنتخب الوطني الجزائري فوزاً ثميناً بنتيجة 3-1 على منتخب زامبيا في أولى مبارياته بتصفيات كأس أمم أفريقيا 2027...</p>
+          <a href="#" class="read-more">اقرأ المزيد ←</a>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="news-badge">الدوري الجزائري</div>
+        <div class="news-content">
+          <span class="news-date">19 سبتمبر 2026</span>
+          <h3>الدوري الجزائري: اتحاد الجزائر وشباب بلوزداد يتقاسمان الصدارة</h3>
+          <p>بعد مرور ثلاث جولات من الموسم الجديد 2026/27، يتصدر اتحاد الجزائر وشباب بلوزداد ترتيب الرابطة المحترفة برصيد 7 نقاط لكل فريق...</p>
+          <a href="#" class="read-more">اقرأ المزيد ←</a>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="news-badge">قمة مرتقبة</div>
+        <div class="news-content">
+          <span class="news-date">أكتوبر 2026</span>
+          <h3>الجولة الخامسة: قمة نارية بين وفاق سطيف وشبيبة القبائل</h3>
+          <p>تتجه أنظار عشاق كرة القدم الجزائرية نحو قمة الجولة الخامسة من الدوري، حيث يستضيف وفاق سطيف غريمه شبيبة القبائل...</p>
+          <a href="#" class="read-more">اقرأ المزيد ←</a>
+        </div>
+      </article>
     </div>
+  </section>
+
+  <!-- قسم الترتيب -->
+  <section class="standings-section" id="standings">
+    <h2 class="section-title">🏆 ترتيب الدوريات</h2>
+
+    <!-- الدوري الجزائري -->
+    <div class="league-block">
+      <h3 class="league-title">🇩🇿 الرابطة المحترفة الجزائرية</h3>
+      <div class="table-wrapper">
+        <table class="standings-table">
+          <thead><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr></thead>
+          <tbody>
+            <tr class="champion"><td>1</td><td>اتحاد الجزائر</td><td>3</td><td>2</td><td>1</td><td>0</td><td><strong>7</strong></td></tr>
+            <tr class="champion"><td>2</td><td>شباب بلوزداد</td><td>3</td><td>2</td><td>1</td><td>0</td><td><strong>7</strong></td></tr>
+            <tr><td>3</td><td>مولودية الجزائر</td><td>2</td><td>2</td><td>0</td><td>0</td><td><strong>6</strong></td></tr>
+            <tr><td>4</td><td>بارادو</td><td>3</td><td>1</td><td>2</td><td>0</td><td><strong>5</strong></td></tr>
+            <tr><td>5</td><td>شباب قسنطينة</td><td>3</td><td>1</td><td>1</td><td>1</td><td><strong>4</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- الدوري الإنجليزي -->
+    <div class="league-block">
+      <h3 class="league-title">🏴󠁧󠁢󠁥󠁮󠁧󠁿 الدوري الإنجليزي الممتاز</h3>
+      <div class="table-wrapper">
+        <table class="standings-table">
+          <thead><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr></thead>
+          <tbody>
+            <tr class="champion"><td>1</td><td>أرسنال</td><td>5</td><td>4</td><td>0</td><td>1</td><td><strong>12</strong></td></tr>
+            <tr class="champion"><td>2</td><td>مانشستر سيتي</td><td>5</td><td>4</td><td>0</td><td>1</td><td><strong>12</strong></td></tr>
+            <tr><td>3</td><td>ليدز يونايتد</td><td>5</td><td>2</td><td>2</td><td>1</td><td><strong>8</strong></td></tr>
+            <tr><td>4</td><td>هال سيتي</td><td>5</td><td>2</td><td>2</td><td>1</td><td><strong>8</strong></td></tr>
+            <tr><td>5</td><td>برايتون</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- الدوري الإسباني -->
+    <div class="league-block">
+      <h3 class="league-title">🇪🇸 الدوري الإسباني</h3>
+      <div class="table-wrapper">
+        <table class="standings-table">
+          <thead><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr></thead>
+          <tbody>
+            <tr class="champion"><td>1</td><td>برشلونة</td><td>7</td><td>7</td><td>0</td><td>0</td><td><strong>21</strong></td></tr>
+            <tr class="champion"><td>2</td><td>ريال مدريد</td><td>7</td><td>5</td><td>0</td><td>2</td><td><strong>15</strong></td></tr>
+            <tr><td>3</td><td>أتلتيكو مدريد</td><td>7</td><td>4</td><td>1</td><td>2</td><td><strong>13</strong></td></tr>
+            <tr><td>4</td><td>إشبيلية</td><td>7</td><td>4</td><td>1</td><td>2</td><td><strong>13</strong></td></tr>
+            <tr><td>5</td><td>فياريال</td><td>7</td><td>1</td><td>2</td><td>4</td><td><strong>5</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- الدوري الإيطالي -->
+    <div class="league-block">
+      <h3 class="league-title">🇮🇹 الدوري الإيطالي</h3>
+      <div class="table-wrapper">
+        <table class="standings-table">
+          <thead><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr></thead>
+          <tbody>
+            <tr class="champion"><td>1</td><td>روما</td><td>6</td><td>4</td><td>1</td><td>1</td><td><strong>13</strong></td></tr>
+            <tr class="champion"><td>2</td><td>إنتر ميلان</td><td>6</td><td>4</td><td>1</td><td>1</td><td><strong>13</strong></td></tr>
+            <tr><td>3</td><td>لاتسيو</td><td>6</td><td>4</td><td>1</td><td>1</td><td><strong>13</strong></td></tr>
+            <tr><td>4</td><td>ميلان</td><td>6</td><td>3</td><td>2</td><td>1</td><td><strong>11</strong></td></tr>
+            <tr><td>5</td><td>يوفنتوس</td><td>6</td><td>3</td><td>1</td><td>2</td><td><strong>10</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- الدوري الألماني -->
+    <div class="league-block">
+      <h3 class="league-title">🇩🇪 الدوري الألماني</h3>
+      <div class="table-wrapper">
+        <table class="standings-table">
+          <thead><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr></thead>
+          <tbody>
+            <tr class="champion"><td>1</td><td>بوروسيا دورتموند</td><td>5</td><td>4</td><td>0</td><td>1</td><td><strong>12</strong></td></tr>
+            <tr class="champion"><td>2</td><td>بايرن ميونخ</td><td>5</td><td>3</td><td>1</td><td>1</td><td><strong>10</strong></td></tr>
+            <tr><td>3</td><td>فرايبورغ</td><td>5</td><td>3</td><td>1</td><td>1</td><td><strong>10</strong></td></tr>
+            <tr><td>4</td><td>باير ليفركوزن</td><td>5</td><td>2</td><td>1</td><td>2</td><td><strong>7</strong></td></tr>
+            <tr><td>5</td><td>لايبزيغ</td><td>5</td><td>2</td><td>0</td><td>3</td><td><strong>6</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ⚡ الدوري الفرنسي 2026/27 (جديد) -->
+    <div class="league-block">
+      <h3 class="league-title">🇫🇷 الدوري الفرنسي - موسم 2026/27</h3>
+      <div class="table-wrapper">
+        <table class="standings-table">
+          <thead><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr></thead>
+          <tbody>
+            <tr class="champion"><td>1</td><td>باريس سان جيرمان</td><td>8</td><td>7</td><td>1</td><td>0</td><td><strong>22</strong></td></tr>
+            <tr class="champion"><td>2</td><td>مارسيليا</td><td>8</td><td>6</td><td>0</td><td>2</td><td><strong>18</strong></td></tr>
+            <tr class="champion"><td>3</td><td>موناكو</td><td>8</td><td>5</td><td>2</td><td>1</td><td><strong>17</strong></td></tr>
+            <tr><td>4</td><td>ليل</td><td>8</td><td>5</td><td>1</td><td>2</td><td><strong>16</strong></td></tr>
+            <tr><td>5</td><td>ليون</td><td>8</td><td>4</td><td>3</td><td>1</td><td><strong>15</strong></td></tr>
+            <tr><td>6</td><td>نيس</td><td>8</td><td>4</td><td>2</td><td>2</td><td><strong>14</strong></td></tr>
+            <tr><td>7</td><td>لانس</td><td>8</td><td>4</td><td>1</td><td>3</td><td><strong>13</strong></td></tr>
+            <tr><td>8</td><td>رين</td><td>8</td><td>3</td><td>3</td><td>2</td><td><strong>12</strong></td></tr>
+            <tr><td>9</td><td>ستراسبورغ</td><td>8</td><td>3</td><td>2</td><td>3</td><td><strong>11</strong></td></tr>
+            <tr><td>10</td><td>تولوز</td><td>8</td><td>3</td><td>1</td><td>4</td><td><strong>10</strong></td></tr>
+            <tr><td>11</td><td>بريست</td><td>8</td><td>2</td><td>3</td><td>3</td><td><strong>9</strong></td></tr>
+            <tr><td>12</td><td>أوكسير</td><td>8</td><td>2</td><td>2</td><td>4</td><td><strong>8</strong></td></tr>
+            <tr><td>13</td><td>نانت</td><td>8</td><td>2</td><td>2</td><td>4</td><td><strong>8</strong></td></tr>
+            <tr><td>14</td><td>أنجيه</td><td>8</td><td>2</td><td>1</td><td>5</td><td><strong>7</strong></td></tr>
+            <tr><td>15</td><td>لوهافر</td><td>8</td><td>1</td><td>3</td><td>4</td><td><strong>6</strong></td></tr>
+            <tr class="relegation"><td>16</td><td>ميتز</td><td>8</td><td>1</td><td>2</td><td>5</td><td><strong>5</strong></td></tr>
+            <tr class="relegation"><td>17</td><td>لوريان</td><td>8</td><td>1</td><td>1</td><td>6</td><td><strong>4</strong></td></tr>
+            <tr class="relegation"><td>18</td><td>باريس FC</td><td>8</td><td>0</td><td>2</td><td>6</td><td><strong>2</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </section>
 
   <footer>
