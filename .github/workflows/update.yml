@@ -19,7 +19,7 @@ jobs:
           python-version: '3.11'
       
       - name: تثبيت المكتبات
-        run: pip install google-generativeai
+        run: pip install --upgrade google-generativeai
       
       - name: تشغيل السكريبت
         env:
