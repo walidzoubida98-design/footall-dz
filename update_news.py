@@ -48,15 +48,15 @@ with open('index.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
 new_news_html = f"""
-<div class="news-item">
-    <h3>📰 خبر اليوم</h3>
-    <p>{news_text}</p>
+<div class="news-section" style="padding: 30px 20px; max-width: 1200px; margin: 0 auto;">
+    <h3 style="color: #006233; margin-bottom: 15px;">📰 خبر اليوم</h3>
+    <p style="line-height: 1.8; color: #222;">{news_text}</p>
 </div>
 """
 
-html = html.replace("<!-- NEWS_PLACEHOLDER -->", new_news_html)
+html = html.replace("</body>", new_news_html + "\n</body>")
 
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html)
 
-print("✅ تم إضافة النص إلى index.html")
+print("✅ تم إضافة الخبر إلى index.html")
