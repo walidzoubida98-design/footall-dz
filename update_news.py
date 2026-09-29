@@ -7,7 +7,7 @@ api_key = os.environ.get("GEMINI_API_KEY")
 genai.configure(api_key=api_key)
 
 # إعداد الذكاء الاصطناعي
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-pro')
 
 # الطلب من الذكاء الاصطناعي كتابة خبر رياضي جزائري
 prompt = """
