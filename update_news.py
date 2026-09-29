@@ -1,12 +1,11 @@
 import os
-import google.generativeai as genai
+from google import genai
 
 # قراءة المفتاح من إعدادات GitHub
 api_key = os.environ.get("GEMINI_API_KEY")
-genai.configure(api_key=api_key)
 
-# إعداد الذكاء الاصطناعي (موديل حديث ومتوافق)
-model = genai.GenerativeModel('gemini-1.5-flash-latest')
+# إعداد الذكاء الاصطناعي (المكتبة الحديثة)
+client = genai.Client(api_key=api_key)
 
 # الطلب من الذكاء الاصطناعي كتابة خبر رياضي جزائري
 prompt = """
@@ -16,7 +15,10 @@ prompt = """
 """
 
 try:
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=prompt,
+    )
     news_text = response.text.strip()
     print("✅ تم توليد الخبر بنجاح:")
     print(news_text)
