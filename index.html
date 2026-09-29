@@ -60,7 +60,44 @@
       .league-block { padding: 15px; }
       .hero h1 { font-size: 24px; }
     }
-  </style>
+ .news-section {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.news-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    border-right: 4px solid #D21034;
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.news-item h3 {
+    color: #006233;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.news-item p {
+    color: #444;
+    line-height: 1.7;
+    font-size: 15px;
+} </style>
 </head>
 <body>
 
@@ -75,7 +112,13 @@
       <a href="#standings">الترتيب</a>
       <a href="#">اتصل بنا</a>
     </nav>
-  </header>
+  </header><!-- قسم الأخبار التلقائية -->
+<section class="news-section">
+    <h2 style="text-align: center; color: #006233; margin: 20px 0;">📰 آخر الأخبار</h2>
+    <div class="news-container">
+        <!-- سيتم إضافة الأخبار هنا تلقائياً -->
+    </div>
+</section>
 
   <div class="breaking">🔴 عاجل: المنتخب الجزائري يستعد لمواجهة بوروندي في تصفيات كان 2027</div>
 
