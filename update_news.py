@@ -1,61 +1,72 @@
 import os
+import re
 import time
 from google import genai
+from datetime import datetime
 
 api_key = os.environ.get("GEMINI_API_KEY")
+client = genai.Client(api_key=api_key, http_options={'timeout': 120000})
 
-client = genai.Client(
-    api_key=api_key,
-    http_options={'timeout': 180000}
-)
+prompt = """اكتب خبراً رياضياً موجزاً بالعربية عن كرة القدم الجزائرية.
+يجب أن يكون:
+- عنوان جذاب في سطر
+- نص الخبر في سطرين أو ثلاثة
+- بدون رموز ماركداون (** أو ##)"""
 
-prompt = """
-اكتب ملخصاً يومياً موجزاً عن آخر الأخبار الوطنية أو الدولية في سطرين. .
-"""
-
-def generate_with_retry(prompt, max_retries=5, wait=15):
-    for attempt in range(max_retries):
-        try:
-            chat = client.chats.create(model="gemini-3.8-flash")
-            response = chat.send_message(prompt)
-            return response.text
-        except Exception as e:
-            error_str = str(e)
-            if "503" in error_str or "UNAVAILABLE" in error_str:
-                print(f"⚠️ محاولة {attempt+1}/{max_retries} فشلت، انتظار {wait}s...")
-                time.sleep(wait)
-                wait *= 2
-            else:
-                raise e
+def generate_news():
+    """يجرب عدة نماذج حتى ينجح"""
+    models = [
+        "gemini-2.5-flash",
+        "gemini-2.0-flash",
+        "gemini-1.5-flash-latest",
+    ]
+    
+    for model in models:
+        for attempt in range(2):
+            try:
+                print(f"🔄 محاولة: {model} (#{attempt+1})")
+                chat = client.chats.create(model=model)
+                response = chat.send_message(prompt)
+                if response.text and len(response.text.strip()) > 20:
+                    print(f"✅ نجح مع: {model}")
+                    return response.text.strip()
+            except Exception as e:
+                err = str(e)[:150]
+                print(f"⚠️ {model} فشل: {err}")
+                time.sleep(5)
+    
     return None
 
 
-try:
-    news_text = generate_with_retry(prompt)
-    if news_text:
-        news_text = news_text.strip()
-        print("✅ تم توليد النص بنجاح")
-        print(news_text)
-    else:
-        news_text = "تابعوا آخر الأخبار الوطنية والدولية من مصادرنا الموثوقة."
-except Exception as e:
-    print(f"❌ خطأ: {e}")
-    news_text = "تابعوا آخر الأخبار الوطنية والدولية من مصادرنا الموثوقة."
+# 1) توليد الخبر
+news_text = generate_news()
+
+if not news_text:
+    news_text = "شهدت الساحة الرياضية الجزائرية تطورات جديدة، تابعونا لكل الأخبار الحصرية."
+    print("⚠️ استخدام النص الاحتياطي")
+else:
+    print("✅ تم توليد الخبر بنجاح")
 
 
+# 2) تنظيف قسم الأخبار في index.html
 with open('index.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
-new_news_html = f"""
-<div class="news-section" style="padding: 30px 20px; max-width: 1200px; margin: 0 auto;">
-    <h3 style="color: #006233; margin-bottom: 15px;">📰 خبر اليوم</h3>
-    <p style="line-height: 1.8; color: #222;">{news_text}</p>
-</div>
-"""
+# التاريخ الحالي بالعربي
+today = datetime.now().strftime("%d/%m/%Y")
 
-html = html.replace("</body>", new_news_html + "\n</body>")
+# قالب الخبر الجديد
+news_block = f'''    <div class="news-auto-card" id="auto-news">
+      <span class="news-auto-date">📅 {today}</span>
+      <h3>📰 خبر اليوم</h3>
+      <p>{news_text}</p>
+    </div>'''
+
+# استبدال القسم القديم (بين <div class="news-auto-card"...> و </div> الأخير)
+pattern = r'<div class="news-auto-card" id="auto-news">.*?</div>'
+html = re.sub(pattern, news_block, html, count=1, flags=re.DOTALL)
 
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html)
 
-print("✅ تم إضافة الخبر إلى index.html")
+print("✅ تم تحديث index.html بنجاح")
