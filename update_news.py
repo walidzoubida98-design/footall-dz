@@ -1,54 +1,72 @@
 import os
+import time
 from google import genai
 
 # قراءة المفتاح من إعدادات GitHub
 api_key = os.environ.get("GEMINI_API_KEY")
 
-# إعداد الذكاء الاصطناعي (المكتبة الحديثة)
+# إعداد الكائن الاستدعائي (النسخة الحديثة)
 client = genai.Client(api_key=api_key)
 
-# الطلب من الذكاء الاصطناعي كتابة خبر رياضي جزائري
+# النص المطلوب من النموذج
 prompt = """
-اكتب خبراً رياضياً حقيقياً ومحدثاً عن الكرة الجزائرية (المنتخب الوطني أو الدوري الجزائري) باللغة العربية.
-يجب أن يكون الخبر قصيراً (من 2 إلى 3 أسطر).
-اكتبه بأسلوب صحفي.
+اكتب ملخصاً يومياً موجزاً عن آخر الأخبار الوطنية أو الدولية. 
+يجب أن يكون النص ما بين سطرين إلى ثلاثة أسطر.
 """
 
-try:
-    response = client.models.generate_content(
-        model="gemini-3.8-flash",
-        contents=prompt,
-    )
-    news_text = response.text.strip()
-    print("✅ تم توليد الخبر بنجاح:")
-    print(news_text)
-except Exception as e:
-    print(f"❌ خطأ في توليد الخبر: {e}")
-    news_text = "شهدت الساحة الرياضية الجزائرية تطورات جديدة، تابعونا لكل الأخبار الحصرية."
+def generate_with_retry(prompt, max_retries=5, wait=30):
+    """توليد النص مع إعادة المحاولة عند فشل 503"""
+    for attempt in range(max_retries):
+        try:
+            response = client.models.generate_content(
+                model="gemini-2.0-flash",
+                contents=prompt,
+            )
+            return response.text
+        except Exception as e:
+            error_str = str(e)
+            if "503" in error_str or "UNAVAILABLE" in error_str:
+                print(f"⚠️ محاولة {attempt+1}/{max_retries} فشلت، انتظار {wait} ثانية...")
+                time.sleep(wait)
+                wait = wait * 2  # 30 → 60 → 120 ...
+            else:
+                raise e
+    return None
 
-# قراءة ملف الموقع الحالي
+
+try:
+    news_text = generate_with_retry(prompt)
+
+    if news_text:
+        news_text = news_text.strip()
+        print("✅ تم توليد النص بنجاح")
+        print(news_text)
+    else:
+        print("⚠️ لم يتم توليد النص، سيتم استخدام نص افتراضي")
+        news_text = "تابعوا آخر الأخبار الوطنية والدولية من مصادرنا الموثوقة."
+
+except Exception as e:
+    print(f"❌ خطأ في توليد النص: {e}")
+    news_text = "تابعوا آخر الأخبار الوطنية والدولية من مصادرنا الموثوقة."
+
+
+# قراءة ملف الأخبار الحالي
 with open('index.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
-# تجهيز كود HTML للخبر الجديد
-new_news_html = f'''
+# قسم الخبر الجديد HTML
+new_news_html = f"""
 <div class="news-item">
-    <h3>📰 خبر جديد</h3>
+    <h3>📰 خبر اليوم</h3>
     <p>{news_text}</p>
 </div>
-'''
+"""
 
-# إضافة الخبر الجديد قبل إغلاق قسم الأخبار
-if '<div class="news-container">' in html:
-    html = html.replace(
-        '<div class="news-container">',
-        '<div class="news-container">' + new_news_html,
-        1
-    )
-    print("✅ تمت إضافة الخبر إلى index.html بنجاح!")
-else:
-    print("⚠️ لم يتم العثور على news-container في index.html")
+# إضافة الخبر الجديد إلى index.html
+# ملاحظة: عدّلي هذا الجزء حسب مكان الإضافة في ملفك
+html = html.replace("<!-- NEWS_PLACEHOLDER -->", new_news_html)
 
-# حفظ الملف المعدل
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html)
+
+print("✅ تم إضافة النص إلى index.html")
