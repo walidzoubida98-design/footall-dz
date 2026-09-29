@@ -17,7 +17,7 @@ prompt = """
 def generate_with_retry(prompt, max_retries=3, wait=10):
     for attempt in range(max_retries):
         try:
-            chat = client.chats.create(model="gemini-2.5-flash")
+            chat = client.chats.create(model="gemini-3.8-flash
             response = chat.send_message(prompt)
             return response.text
         except Exception as e:
